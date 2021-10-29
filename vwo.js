@@ -1,6 +1,8 @@
+// if there is no reference to fc_executed, create one and set it to false
 if (!window.fc_executed) {
   window.fc_executed = false;
 }
+
 /**
  * wait until the dom is ready to be run and then run passed function
  * @param  {function} fn function to be run when page is ready
@@ -85,38 +87,43 @@ function main() {
     return;
   }
 
+  // set this to true to prevent the same code from running multiple times on the same page
   window.fc_executed = true;
 
   console.log('fc executed');
 
-  // set up full story buttons
-  let fsBtns = document.querySelectorAll('.fc-fs');fasdf
-  fsBtns.forEach(f => {
-    f.addEventListener('click', () => {
+  // set up functionality to dynamically hide full story and quality matters links
+  window.addEventListener('click', (e) => {
+    let t = e.target;
+    if (t.classList.contains('fc-fs') && !window.fc_fs) {
+      let fsBtns = document.querySelectorAll('.fc-fs');
+
+      // we prevent any fs buttons from being created after this has been run
+      window.fc_fs = true;
+
       fsBtns.forEach((s) => {
-        if (s != f) {
+        if (s != t) {
           s.parentElement.classList.add('fc-hide');
         }
       })
-    });
-  });
+    }
 
-  window.addEventListener('click', (e) => {
+    if (t.classList.contains('fc-qm') && !window.fc_qm) {
+      
+      let qmBtns = document.querySelectorAll('.fc-qm');
 
-  })
-  
-  
-  // set up quality matters buttons
-  let qmBtns = document.querySelectorAll('.fc-qm');
-  qmBtns.forEach(q => {
-    q.addEventListener('click', () => {
+      // we prevent any qm buttons from being created after this has been run
+      window.fc_qm = true;
+
       qmBtns.forEach((m) => {
-        if (m != q) {
+        if (m != t) {
           m.parentElement.classList.add('fc-hide');
         }
       })
-    })
+    }
+
   })
+  
 }
 
 domReady(main);
