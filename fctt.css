@@ -1,0 +1,30 @@
+.fc-tt {
+    position: absolute;
+    background: lightgray;
+    padding: 1rem;
+    font-size: .85rem;
+    max-width: 20rem;
+    transform: translateX(-50%) translateY(calc(-100%));
+    line-height: 1.125;
+    box-shadow: 0 0 5px rgba(0, 0, 0, .3);
+  }
+  
+  .fc-tt::after {
+    content: "";
+    display: block;
+    height: 1em;
+    width: 1em;
+    background: lightgray;
+    position: absolute;
+    bottom: -.5rem;;
+    left: 50%;
+    transform: translateX(-50%) rotate(45deg);
+  }
+  
+  .fc-tt-close {
+    position: absolute;
+    top: 0;
+    right: 0;
+    line-height: .5;
+    padding: .5rem;
+  }

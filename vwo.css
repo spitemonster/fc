@@ -1,0 +1,72 @@
+:root {
+  --fcLbWidth: 60rem;
+  --fcAccent: orange;
+}
+
+body.fancybox-active {
+  overflow: hidden;
+}
+
+.fc-link {
+  font-size: 1em;
+  text-decoration: underline;
+  color: var(--fcAccent);
+  display: inline;
+  background: none;
+  border: none;
+  border-radius: 0;
+  padding: 0;
+  margin: 0;
+}
+
+.fc-link.rem {
+  font-size: 1rem;
+}
+
+.fc-fig {
+  margin: 0 auto 1rem;
+  max-width: 30rem;
+}
+
+.fc-btn {
+  --fcHoverColor: white;
+  border: 1px solid var(--fcAccent);
+  border-radius: 5px;
+  padding: .25rem .5rem;
+  color: var(--fcAccent);
+  background: none;
+}
+
+.fc-btn:hover {
+  color: var(--fcHoverColor);
+  background: var(--fcAccent);
+}
+
+.fancybox-content {
+  max-width: var(--fcLbWidth);
+  width: 100%;
+  font-size: max(18px, 1rem);
+}
+
+.fancybox-content p {
+  margin-bottom: 1.5em;
+}
+
+.fancybox-content:not(.noscroll) .fancybox-close-small {
+  position: fixed;
+  right: calc((100vw - var(--fcLbWidth)) / 2);
+}
+
+@media (max-width: 960px) {
+  .fancybox-content {
+    height: 100%;
+  }
+
+  .fancybox-content .fancybox-close-small {
+    right: 0;
+  }
+}
+
+.fc-hide:not(.fancybox-content) {
+  display: none !important;
+}
